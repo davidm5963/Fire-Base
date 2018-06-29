@@ -22,7 +22,7 @@ import { appRoutes } from './Routes'
 
 import { AuthService } from './Services/auth.service'
 import { ChatService } from './Services/chat.service'
-import { environment } from '../environments/environment.prod';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
