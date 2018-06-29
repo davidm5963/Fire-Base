@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatService } from '../Services/chat.service'
 
 @Component({
   selector: 'app-chat-form',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatFormComponent implements OnInit {
 
-  constructor() { }
+  message: string;
+
+  constructor(private chatService: ChatService) { }
 
   ngOnInit() {
+  }
+
+  send(){
+    this.chatService.sendMessage(this.message);
+  }
+
+  handleSubmit(event)
+  {
+    if(event.keycode == 13)
+    {
+      this.send();
+    }
   }
 
 }
