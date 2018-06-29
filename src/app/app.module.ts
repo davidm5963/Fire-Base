@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router'
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth'
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
 import { ChatFormComponent } from './chat-form/chat-form.component';
@@ -43,7 +43,7 @@ import { environment } from '../environments/environment';
     RouterModule.forRoot(appRoutes),
     FormsModule,
     AngularFireModule,
-    AngularFireAuth,
+    AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
