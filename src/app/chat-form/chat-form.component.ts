@@ -17,6 +17,7 @@ export class ChatFormComponent implements OnInit {
 
   send(){
     this.chatService.sendMessage(this.message);
+    this.message = '';
   }
 
   handleSubmit(event)
