@@ -12,20 +12,12 @@ import { ChatMessage } from '../Models/chat-message.model';
 })
 export class FeedComponent implements OnInit, OnChanges {
 
-  feed: any[];
+  feed: Observable<ChatMessage[]>;
 
   constructor(private chatService: ChatService) { }
 
   ngOnInit() {
-    this.chatService.getMessages().snapshotChanges()
-    .subscribe(item => {
-      this.feed = [];
-      item.forEach(element => {
-        var x = element.payload.toJSON();
-        x['$key'] = element.key;
-        this.feed.push(x);
-        })
-      });
+    this.feed = this.chatService.getMessages().valueChanges()
   }
 
   ngOnChanges(){
