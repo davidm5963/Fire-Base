@@ -34,6 +34,11 @@ export class AuthService {
 
   }
 
+  getCurrentUser()
+  {
+    return firebase.auth().currentUser;
+  }
+
   //// Email/Password Auth ////
   
   signUp(email: string, password: string, displayName: string) {
