@@ -19,8 +19,4 @@ export class LoginComponent{
     this.authService.login(this.email, this.password);
   }
 
-  onSignupLinkClick(){
-    this.router.navigate(['signup']);
-  }
-
 }
