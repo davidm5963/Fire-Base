@@ -29,7 +29,6 @@ export class ChatService{
         console.log('Document data:', doc.data());
 
         this.user = doc.data();
-        const timeStamp = this.getTimeStamp();
         this.getMessages().add({
           timeSent: new Date(),
           message: msg,
