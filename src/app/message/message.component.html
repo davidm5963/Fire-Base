@@ -1,13 +1,13 @@
 <div class="messageContainer">
-  <div class="data">
+  <div class="messageData">
     <span class="sender">
-      {{userName}}
+      {{displayName}}
     </span>
     <span class="timeSent">
         {{ timeSent | date:'medium'}}
     </span>
   </div>
-  <div class="content">
+  <div class="messageContent">
     {{ message }}
   </div>
 </div>
