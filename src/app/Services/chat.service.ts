@@ -45,7 +45,7 @@ export class ChatService{
   }
 
   getMessages(){
-    this.chatMessagesCollection = this.afs.collection('chatMessage', ref => ref.orderBy('timeSent', 'desc'));
+    this.chatMessagesCollection = this.afs.collection('chatMessage', ref => ref.orderBy('timeSent'));
     return this.chatMessagesCollection;
   }
 }
