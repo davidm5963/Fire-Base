@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth'; 
@@ -11,34 +11,36 @@ import { ChatMessage } from '../Models/chat-message.model'
 @Injectable({
   providedIn: 'root'
 })
-export class ChatService {
+export class ChatService{
 
   user: any;
   chatMessagesCollection: AngularFirestoreCollection<ChatMessage>;
   chatMessages: Observable<ChatMessage[]>;
   userName: Observable<string>;
 
-  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) 
-  {
-    
-  }
-
-  getUser(){
-    const userId = this.user.userId;
-    const path = `users/${userId}`;
-    return this.afs.doc(path).valueChanges();
-  }
+  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {  }
 
   sendMessage(msg: string){
-    const timeStamp = this.getTimeStamp();
-    const email = this.user.email;
-    this.getMessages().add({
-      timeSent: timeStamp,
-      message: msg,
-      userName: this.user.userName,
-      email: email,
-    });
+    this.afs.doc(`users/${firebase.auth().currentUser.uid}`).ref.get().then(doc => {
+      if (!doc.exists) {
+        console.log('No such document!');
+      } else {
+        console.log('Document data:', doc.data());
 
+        this.user = doc.data();
+        const timeStamp = this.getTimeStamp();
+        this.getMessages().add({
+          timeSent: timeStamp,
+          message: msg,
+          displayName: this.user.displayName,
+          email: this.user.email,
+        });
+      }
+    })
+    .catch(err => {
+      console.log('Error getting document', err);
+    });
+    
     console.log("Called sendMessage()");
   }
 
