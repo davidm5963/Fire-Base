@@ -1,8 +1,6 @@
 <ng-container class="container" *ngIf="(user) || {} as user">
 
     <form [formGroup]="signupForm" *ngIf="!user.uid" (ngSubmit)="signup()">
-        
-      <h3>New User Signup</h3>
     
       <label for="email">Email</label>
       <input class="formInput" type="email" formControlName="email">
