@@ -28,15 +28,16 @@ export class AuthService {
           } else {
             // logged out, null
             return null
+
           }
         })
       )
-
+      console.log(this.user);
   }
 
   getCurrentUser()
   {
-    return firebase.auth().currentUser;
+    return this.user;
   }
 
   //// Email/Password Auth ////
@@ -55,6 +56,7 @@ export class AuthService {
   login(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
+        console.log(firebase.auth().currentUser);
         this.router.navigate(['chat']);
       });
   }
@@ -69,6 +71,7 @@ export class AuthService {
   private setUserDoc() {
 
     this.user = firebase.auth().currentUser;    
+    console.log(this.user)
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${this.user.uid}`);
 
     const data: User = {
@@ -80,5 +83,13 @@ export class AuthService {
 
     return userRef.set(data)
 
+  }
+
+  signOut(){
+    firebase.auth().signOut().then(function() {
+      this.router.navigate(['login']);
+    }).catch(function(error) {
+      // An error happened.
+    });
   }
 }
