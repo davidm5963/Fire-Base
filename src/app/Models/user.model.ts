@@ -1,6 +1,6 @@
 export class User{
     uid: string;
     email: string;
-    userName?: string;
+    displayName?: string;
     status: string;
 }
