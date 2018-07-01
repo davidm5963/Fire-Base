@@ -13,7 +13,7 @@ import { User } from '../Models/user.model'
 @Injectable()
 export class AuthService {
 
-  user: Observable<User>;
+  user: any;
 
   constructor(private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
@@ -36,10 +36,13 @@ export class AuthService {
 
   //// Email/Password Auth ////
   
-  signUp(email: string, password: string) {
+  signUp(email: string, password: string, displayName: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then(user => {
-        return this.setUserDoc(user) // create initial user document
+         // create initial user document
+        this.setUserDoc();
+        this.updateUser(displayName);
+        this.router.navigate(['chat']);
       })
       .catch(error => console.log(error) );
   }
@@ -52,19 +55,22 @@ export class AuthService {
   }
 
   // Update properties on the user document
-  updateUser(user: User, data: any) { 
-    return this.afs.doc(`users/${user.uid}`).update(data)
+  updateUser(data: any) { 
+    this.user = firebase.auth().currentUser;
+    return this.afs.doc(`users/${this.user.uid}`).update({displayName: data})
   }
 
   // Sets user data to firestore after succesful login
-  private setUserDoc(user) {
+  private setUserDoc() {
 
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+    this.user = firebase.auth().currentUser;    
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${this.user.uid}`);
 
     const data: User = {
-      uid: user.uid,
-      email: user.email || null,
-      status: 'Online'
+      uid: this.user.uid,
+      email: this.user.email || null,
+      status: 'Online',
+      displayName: ''
     }
 
     return userRef.set(data)
