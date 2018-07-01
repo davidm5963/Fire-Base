@@ -49,16 +49,4 @@ export class ChatService{
     this.chatMessagesCollection = this.afs.collection('chatMessage', ref => ref.orderBy('timeSent', 'desc'));
     return this.chatMessagesCollection;
   }
-
-  getTimeStamp() {
-    const now = new Date();
-    const date = now.getUTCFullYear() + '/' +
-                 (now.getUTCMonth() + 1) + '/' +
-                 now.getUTCDate();
-    const time = now.getUTCHours() + ':' +
-                 now.getUTCMinutes() + ':' +
-                 now.getUTCSeconds();
-
-    return (date + ' ' + time);
-  }
 }
