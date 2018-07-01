@@ -21,6 +21,7 @@ export class ChatService{
   constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {  }
 
   sendMessage(msg: string){
+
     this.afs.doc(`users/${firebase.auth().currentUser.uid}`).ref.get().then(doc => {
       if (!doc.exists) {
         console.log('No such document!');
@@ -30,7 +31,7 @@ export class ChatService{
         this.user = doc.data();
         const timeStamp = this.getTimeStamp();
         this.getMessages().add({
-          timeSent: timeStamp,
+          timeSent: new Date(),
           message: msg,
           displayName: this.user.displayName,
           email: this.user.email,
@@ -45,7 +46,7 @@ export class ChatService{
   }
 
   getMessages(){
-    this.chatMessagesCollection = this.afs.collection('chatMessage');
+    this.chatMessagesCollection = this.afs.collection('chatMessage', ref => ref.orderBy('timeSent', 'desc'));
     return this.chatMessagesCollection;
   }
 
