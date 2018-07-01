@@ -1,3 +1,31 @@
-<p>
-  signup works!
-</p>
+<ng-container class="container" *ngIf="(user) || {} as user">
+
+    <form [formGroup]="signupForm" *ngIf="!user.uid" (ngSubmit)="signup()">
+        
+      <h3>New User Signup</h3>
+    
+      <label for="email">Email</label>
+      <input class="formInput" type="email" formControlName="email">
+  
+      <div class="helperMessage" *ngIf="email.invalid && email.dirty">
+          Your email doesn't look quite right...
+      </div>
+      
+      <label for="displayName">Display Name</label>
+      <input class="formInput" formControlName="displayName" required>
+
+      <label for="password">Password</label>
+      <input class="formInput" type="password" formControlName="password" required>
+    
+      <div class="helperMessage" *ngIf="password.invalid && password.touched" >
+        Password must be between 6 and 24 chars and have at least one number 
+      </div>
+    
+      <div class="helperMessage" *ngIf="signupForm.valid" >Form looks good! Let's do this.</div>
+    
+      <button class="btn btn-signUp" type="submit" [disabled]="!signupForm.valid">Submit</button>
+    
+    
+    </form>
+      
+  </ng-container>
