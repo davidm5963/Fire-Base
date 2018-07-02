@@ -1,19 +1,16 @@
-<ng-container class="container" *ngIf="(user) || {} as user">
+<div class="container" *ngIf="(user) || {} as user">
 
     <form [formGroup]="signupForm" *ngIf="!user.uid" (ngSubmit)="signup()">
     
-      <label for="email">Email</label>
-      <input class="formInput" type="email" formControlName="email">
+      <input class="formInput" type="email" formControlName="email" placeholder="Email" required>
   
       <div class="helperMessage" *ngIf="email.invalid && email.dirty">
           Your email doesn't look quite right...
       </div>
       
-      <label for="displayName">Display Name</label>
-      <input class="formInput" formControlName="displayName" required>
+      <input class="formInput" formControlName="displayName" placeholder="Display Name" required>
 
-      <label for="password">Password</label>
-      <input class="formInput" type="password" formControlName="password" required>
+      <input class="formInput" type="password" formControlName="password" placeholder="Password" required>
     
       <div class="helperMessage" *ngIf="password.invalid && password.touched" >
         Password must be between 6 and 24 chars and have at least one number 
@@ -26,4 +23,4 @@
     
     </form>
       
-  </ng-container>
+  </div>
