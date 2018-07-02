@@ -14,7 +14,7 @@ export class MessageComponent implements OnInit {
   email: string;
   displayName: string;
   message: string;
-  timeSent: Date;
+  timeSent: string;
   isOwnMessage: boolean;
 
   constructor(private authService: AuthService) {
@@ -30,7 +30,7 @@ export class MessageComponent implements OnInit {
     this.email = chatMessage.email;
     this.displayName = chatMessage.displayName;
     this.timeSent = chatMessage.timeSent;
-    
   }
+
 
 }
