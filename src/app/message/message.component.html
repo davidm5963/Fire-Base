@@ -15,15 +15,15 @@
 
 <!-- template for current users messages -->
 <div class="isOwnMessageContainer" *ngIf="isOwnMessage">
-    <div class="messageData">
-      <span class="sender">
-        {{displayName}}
-      </span>
-      <span class="timeSent">
-          {{ timeSent }}
-      </span>
-    </div>
     <div class="messageContent">
       {{ message }}
     </div>
+    <div class="messageData">
+        <span class="sender">
+          {{displayName}}
+        </span>
+        <span class="timeSent">
+            {{ timeSent }}
+        </span>
+      </div>
   </div>
