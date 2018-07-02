@@ -64,20 +64,19 @@ export class AuthService {
 
   // Update properties on the user document
   updateUser(data: any) { 
-    this.user = firebase.auth().currentUser;
     return this.afs.doc(`users/${this.user.uid}`).update({displayName: data})
   }
 
   // Sets user data to firestore after succesful login
   private setUserDoc() {
 
-    this.user = firebase.auth().currentUser;    
-    console.log(this.user)
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${this.user.uid}`);
+    var user = firebase.auth().currentUser;    
+    console.log(user)
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
     const data: User = {
-      uid: this.user.uid,
-      email: this.user.email || null,
+      uid: user.uid,
+      email: user.email || null,
       status: 'Online',
       displayName: ''
     }
@@ -89,6 +88,7 @@ export class AuthService {
   signOut(){
     firebase.auth().signOut().then(function() {
       this.router.navigate(['login']);
+      return this.afs.doc(`users/${this.user.uid}`).update({status: 'Offline'})
     }).catch(function(error) {
       // An error happened.
     });
