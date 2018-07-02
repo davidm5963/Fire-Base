@@ -88,7 +88,7 @@ export class AuthService {
   signOut(){
     firebase.auth().signOut().then(function() {
       this.router.navigate(['login']);
-      return this.afs.doc(`users/${this.user.uid}`).update({status: 'Offline'})
+      this.afs.doc(`users/${this.user.uid}`).update({status: 'Offline'})
     }).catch(function(error) {
       // An error happened.
     });
