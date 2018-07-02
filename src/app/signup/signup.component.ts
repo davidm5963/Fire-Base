@@ -22,8 +22,6 @@ export class SignupComponent{
   constructor(public fb: FormBuilder, public auth: AuthService) { }
 
   ngOnInit() {
-    
-    this.user = firebase.auth().currentUser;
 
     // First Step
     this.signupForm = this.fb.group({
