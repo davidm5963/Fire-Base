@@ -1,24 +1,27 @@
+
 <div class="container">
-    <div class="loginCard">
-      <h2 class="heading">Log In</h2>
-        <input 
-          [(ngModel)]="email"
-          type="email" 
-          name="email" 
-          class="formInput" />
-        <input type="password" 
-          [(ngModel)]="password"
-          name="password" 
-          class="formInput" />
-        <button class="btn" 
-                id="btn-login" 
-                (click)="login()">
-                Log In
-        </button>
-        <div class="newUser">
-            <p>
-              New User? Click <span routerLink="/signup">here</span> to sign up!
-            </p>
-          </div>
-    </div>
-  </div>
+  <div class="header">Log In</div>
+    <div [formGroup]="loginForm" >
+            <input 
+              formControlName="email"
+              type="email" 
+              name="email" 
+              placeholder="Email"
+              class="formInput" />
+            <input type="password" 
+            formControlName="password"
+              name="password" 
+              placeholder="Password"
+              class="formInput" />
+            <button class="btn" 
+                    id="btn-login" 
+                    (click)="login()">
+                    Log In
+            </button>
+            <div class="newUser">
+                <p>
+                  New User? Click <a routerLink="/signup">here</a> to sign up!
+                </p>
+              </div>
+      </div>
+</div>
