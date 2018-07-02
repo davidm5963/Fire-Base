@@ -1,22 +1,37 @@
 .messageContainer{
-    display: flex;
+    display:flex;
+    float: left;
     height: auto;
-    width: 70%;
+    width: 55%;
     min-width: 400px;
-    border-radius: 5px;
+    border-radius: 15px;
+    border: 2px solid #ccc;
     align-items:stretch;
-    background-color: #eee;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.26), 0 3px 6px rgba(0,0,0,0.23);
+    background-color: transparent;
 }
 
 .isOwnMessageContainer{
-    background-color: #01579B;
+    float: right;
+}
+.isOwnMessageContainer .messageData{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-.messageData{
+.isOtherMessageContainer{
+    float: left;
+}
+.isOtherMessageContainer .messageData{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.messageData{ 
+    background-color: #ccc;
     flex: 1.5;
     padding: 10px;
-    font-size: 0.7em;
+    font-size: 1em;
+    color: #333333;
 }
 
 .sender{
@@ -29,9 +44,9 @@
     color: #E1F5FE;
 }
 
-.timestamp {
-    color: #555;
-    font-style: italic;
+.timeStamp {
+    color: #ccc;
+    text-align: center;
 }
 
 .isOwnTimestamp{
@@ -41,10 +56,9 @@
 .messageContent{
     height: auto;
     flex: 9;
-    background-color: #fff;
     padding: 10px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 10px;
+    color: whitesmoke;
 }
 
 .isOwnMessageContent{
