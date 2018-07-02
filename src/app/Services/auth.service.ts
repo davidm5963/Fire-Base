@@ -15,6 +15,7 @@ import { User } from '../Models/user.model'
 export class AuthService {
 
   user: any;
+  userId: any;
 
   constructor(private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
@@ -25,6 +26,7 @@ export class AuthService {
         switchMap(user => {
           if (user) {
             // logged in, get custom user from Firestore
+            this.userId = user.uid;
             return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
           } else {
             // logged out, null
@@ -34,6 +36,18 @@ export class AuthService {
         })
       )
       console.log(this.user);
+  }
+
+  private updateStatus(status: string)
+  {
+    if(this.userId){
+    return this.afs.doc(`users/${this.userId}`).update({status: status})
+    }
+  }
+
+  private updateOnConnect(){
+    return this.afs.doc('info/connected')
+      .do
   }
 
   getCurrentUser()
@@ -64,7 +78,8 @@ export class AuthService {
 
   // Update properties on the user document
   updateUser(data: any) { 
-    return this.afs.doc(`users/${this.user.uid}`).update({displayName: data})
+    var user = firebase.auth().currentUser;
+    return this.afs.doc(`users/${user.uid}`).update({displayName: data})
   }
 
   // Sets user data to firestore after succesful login
@@ -88,9 +103,9 @@ export class AuthService {
   signOut(){
     firebase.auth().signOut().then(function() {
       this.router.navigate(['login']);
-      this.afs.doc(`users/${this.user.uid}`).update({status: 'Offline'})
+      //this.afs.doc(`users/${this.user.uid}`).update({status: 'Offline'})
     }).catch(function(error) {
-      // An error happened.
+      console.log(error);
     });
   }
 }
