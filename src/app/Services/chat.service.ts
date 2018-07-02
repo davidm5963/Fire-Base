@@ -30,7 +30,7 @@ export class ChatService{
 
         this.user = doc.data();
         this.getMessages().add({
-          timeSent: new Date(),
+          timeSent: new Date().toUTCString(),
           message: msg,
           displayName: this.user.displayName,
           email: this.user.email,
