@@ -1,29 +1,37 @@
 <!-- template for non current users messages -->
-<div class="messageContainer" *ngIf="!isOwnMessage">
-  <div class="messageData">
-    <span class="sender">
-      {{displayName}}
-    </span>
-    <span class="timeSent">
-        {{ timeSent }}
-    </span>
-  </div>
-  <div class="messageContent">
-    {{ message }}
-  </div>
-</div>
-
-<!-- template for current users messages -->
-<div class="isOwnMessageContainer" *ngIf="isOwnMessage">
-    <div class="messageContent">
-      {{ message }}
+<div *ngIf="!isOwnMessage">
+    <div class="timeStamp">
+      <small>
+          {{ timeSent | date:'short'}}
+      </small>
     </div>
-    <div class="messageData">
+    <div class="messageContainer" [ngClass]="{'isOtherMessageContainer' : !isOwnMessage}">
+      <div class="messageData">
         <span class="sender">
           {{displayName}}
         </span>
-        <span class="timeSent">
-            {{ timeSent }}
-        </span>
       </div>
-  </div>
+      <div class="messageContent">
+        {{ message }}
+      </div>
+    </div>
+</div>
+
+<!-- template for current users messages -->
+<div *ngIf="isOwnMessage">
+    <div class="timeStamp">
+        <small>
+            {{ timeSent | date:'short'}}
+        </small>
+    </div>
+    <div class="messageContainer" [ngClass]="{'isOwnMessageContainer' : isOwnMessage}">
+        <div class="messageContent">
+          {{ message }}
+        </div>
+        <div class="messageData">
+            <span class="sender">
+              {{displayName}}
+            </span>
+          </div>
+      </div>
+</div>
