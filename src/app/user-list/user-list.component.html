@@ -1,6 +1,6 @@
 
 <div>
-    <div *ngFor="let user of users | async">
+    <div *ngFor="let user of users | async" class="userItem">
         <app-user-item [user]=user></app-user-item>
       </div>      
 </div>
