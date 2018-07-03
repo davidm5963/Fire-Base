@@ -20,6 +20,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
+    this.authService.updateData({status: 'offline'})
     this.authService.signOut();
   }
 
