@@ -24,7 +24,7 @@ import { appRoutes } from './Routes'
 import { AuthService } from './Services/auth.service'
 import { ChatService } from './Services/chat.service'
 import { environment } from '../environments/environment';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './Services/auth.guard';
 
 
 @NgModule({
