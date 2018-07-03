@@ -3,7 +3,7 @@
     <div id="heading"><a routerLink="/">Firechat</a></div>
   <div class="links">
     <span>
-      <a *ngIf="!user" href="#" (click)="login()">Login</a>
+      <a *ngIf="!user" href="#" routerLink="/login">Login</a>
     </span>
     <span>
       <a *ngIf="!user" routerLink="/signup">Sign Up</a>
