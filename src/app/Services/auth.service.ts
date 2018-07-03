@@ -38,11 +38,22 @@ export class AuthService {
       console.log(this.user);
   }
 
-  getCurrentUser()
+  getCurrentUser(): Observable<User>
   {
     return this.user;
   }
+  getFirestoreUser(){
+    return firebase.auth().currentUser;
+  }
 
+  isAuthenticated(): boolean{
+    if(this.getFirestoreUser()){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
   //// Email/Password Auth ////
   
   signUp(email: string, password: string, displayName: string) {
