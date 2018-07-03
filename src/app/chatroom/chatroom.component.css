@@ -8,9 +8,11 @@
     display: flex;
     font-family: "Open Sans", sans-serif;
     font-size: 1.2em;
-    flex: 1;
+    flex: 1.5;
     order: 1;
     padding:20px 0px 40px 30px;
+    overflow-y: auto;
+    
     border-right: 1px solid #222;
 }
 
@@ -43,4 +45,23 @@
 
 app-user-list {
     width: 100%;
+}
+/* width */
+::-webkit-scrollbar {
+    width: px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }
