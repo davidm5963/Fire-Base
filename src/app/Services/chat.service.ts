@@ -54,7 +54,7 @@ export class ChatService{
 
   getUsers()
   {
-    this.usersCollection =  this.afs.collection('users', ref => ref.orderBy('status'));
+    this.usersCollection =  this.afs.collection('users', ref => ref.orderBy('status', 'desc'));
     return this.usersCollection;
   }
 
