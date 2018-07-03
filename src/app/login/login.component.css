@@ -51,6 +51,7 @@
       color:rgb(214, 39, 39);
       border-color:rgb(214, 39, 39);
       transition: ease-in 0.2s;
+      cursor: pointer;
   }
 
   .header{

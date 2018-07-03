@@ -54,7 +54,9 @@
     background-color: transparent;
     outline: 0;
     transition: ease-in 0.2s;
+    cursor: pointer;
   }
+
   
   .btnValid{
     border: #5cb85c 2px solid;
