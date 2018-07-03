@@ -7,6 +7,7 @@ import { AuthService } from '../services/auth.service';
 import * as firebase from 'firebase/app';
 
 import { ChatMessage } from '../Models/chat-message.model'
+import { User } from '../Models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,9 @@ export class ChatService{
 
   user: any;
   chatMessagesCollection: AngularFirestoreCollection<ChatMessage>;
-  chatMessages: Observable<ChatMessage[]>;
+
+  usersCollection: AngularFirestoreCollection<User>;
+  
   userName: Observable<string>;
 
   constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {  }
@@ -48,4 +51,11 @@ export class ChatService{
     this.chatMessagesCollection = this.afs.collection('chatMessage', ref => ref.orderBy('timeSent'));
     return this.chatMessagesCollection;
   }
+
+  getUsers()
+  {
+    this.usersCollection =  this.afs.collection('users', ref => ref.orderBy('status'));
+    return this.usersCollection;
+  }
+
 }
