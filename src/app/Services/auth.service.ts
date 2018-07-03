@@ -38,13 +38,6 @@ export class AuthService {
       console.log(this.user);
   }
 
-  private updateStatus(status: string)
-  {
-    if(this.userId){
-    return this.afs.doc(`users/${this.userId}`).update({status: status})
-    }
-  }
-
   getCurrentUser()
   {
     return this.user;
@@ -57,7 +50,7 @@ export class AuthService {
       .then(user => {
          // create initial user document
         this.setUserDoc();
-        this.updateUser(displayName);
+        this.updateData({displayName: displayName});
         this.router.navigate(['chat']);
       })
       .catch(error => console.log(error) );
@@ -66,15 +59,17 @@ export class AuthService {
   login(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
-        console.log(firebase.auth().currentUser);
+        this.updateData({status: 'online'});                
         this.router.navigate(['chat']);
       });
   }
 
   // Update properties on the user document
-  updateUser(data: any) { 
+  updateData(data: any) { 
+    console.log("updating statsu")
     var user = firebase.auth().currentUser;
-    return this.afs.doc(`users/${user.uid}`).update({displayName: data})
+    console.log(user);
+    return this.afs.doc(`users/${user.uid}/`).update(data)
   }
 
   // Sets user data to firestore after succesful login
@@ -87,7 +82,7 @@ export class AuthService {
     const data: User = {
       uid: user.uid,
       email: user.email || null,
-      status: 'Online',
+      status: 'online',
       displayName: ''
     }
 
@@ -96,9 +91,11 @@ export class AuthService {
   }
 
   signOut(){
-    firebase.auth().signOut().then(function() {
+    console.log('updating status on logout')
+    
+    
+    firebase.auth().signOut().then(result =>{
       this.router.navigate(['login']);
-      //this.afs.doc(`users/${this.user.uid}`).update({status: 'Offline'})
     }).catch(function(error) {
       console.log(error);
     });
