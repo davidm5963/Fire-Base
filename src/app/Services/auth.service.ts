@@ -45,11 +45,6 @@ export class AuthService {
     }
   }
 
-  private updateOnConnect(){
-    return this.afs.doc('info/connected')
-      .do
-  }
-
   getCurrentUser()
   {
     return this.user;
