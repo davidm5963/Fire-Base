@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
+import { AuthGuard } from './auth.guard';
 
 export const appRoutes: Routes = [
     { path: 'signup', component: SignupComponent },
