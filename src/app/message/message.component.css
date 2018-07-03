@@ -1,13 +1,12 @@
 .messageContainer{
-    display:flex;
-    float: left;
+    display: flex;
     height: auto;
     width: 55%;
     min-width: 400px;
-    border-radius: 15px;
-    border: 2px solid #ccc;
+    border-radius: 5px;
     align-items:stretch;
-    background-color: transparent;
+    background-color: whitesmoke;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.26), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .isOwnMessageContainer{
@@ -32,6 +31,7 @@
     padding: 10px;
     font-size: 1em;
     color: #333333;
+    height: auto
 }
 
 .sender{
@@ -58,7 +58,7 @@
     flex: 9;
     padding: 10px;
     border-radius: 10px;
-    color: whitesmoke;
+    color: #333333;
 }
 
 .isOwnMessageContent{
