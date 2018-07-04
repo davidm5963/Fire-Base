@@ -45,15 +45,6 @@ export class AuthService {
   getFirestoreUser(){
     return firebase.auth().currentUser;
   }
-
-  isAuthenticated(): boolean{
-    if(this.getFirestoreUser()){
-      return true;
-    }
-    else{
-      return false;
-    }
-  }
   //// Email/Password Auth ////
   
   signUp(email: string, password: string, displayName: string) {
@@ -64,7 +55,6 @@ export class AuthService {
         this.updateData({displayName: displayName});
         this.router.navigate(['chat']);
       })
-      .catch(error => console.log(error) );
   }
 
   login(email: string, password: string) {
