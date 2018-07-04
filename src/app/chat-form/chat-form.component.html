@@ -1,8 +1,10 @@
-<input 
+<form [formGroup]="chatForm" class='chatForm'>
+    <input 
     class="chatInput" 
-    [(ngModel)]="message" 
+    formControlName = 'message'
     (keydown)="handleSubmit($event)"
     />
 
 <button class="chatButton" 
   (click)=send()>Send</button>
+</form>
