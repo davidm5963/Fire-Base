@@ -25,6 +25,7 @@ import { AuthService } from './Services/auth.service'
 import { ChatService } from './Services/chat.service'
 import { environment } from '../environments/environment';
 import { AuthGuard } from './Services/auth.guard';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { AuthGuard } from './Services/auth.guard';
     NavbarComponent,
     UserListComponent,
     UserItemComponent,
-    ChatroomComponent
+    ChatroomComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
