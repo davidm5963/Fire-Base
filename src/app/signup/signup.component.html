@@ -1,5 +1,6 @@
 <div class="container" *ngIf="(user) || {} as user">
     <div class="header">Sign Up</div>
+    <div class="error">{{errorMessage}}</div>
     <form [formGroup]="signupForm" *ngIf="!user.uid" (ngSubmit)="signup()">
     
       <input class="formInput"[ngClass]="{'formInputValid': email.valid, 'formInputInvalid': email.invalid && email.touche}"
