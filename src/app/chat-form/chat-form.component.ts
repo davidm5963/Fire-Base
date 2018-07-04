@@ -20,6 +20,7 @@ export class ChatFormComponent implements OnInit {
   }
 
   send(){
+    this.chatForm.reset();
     this.chatService.sendMessage(this.message.value);
   }
 
