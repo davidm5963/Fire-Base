@@ -85,3 +85,8 @@
   .label{
       font-size: 0.9em;
   }
+
+  .error{
+    height: auto;
+    color: rgb(214, 39, 39);
+  }
