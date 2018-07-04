@@ -16,7 +16,6 @@ import * as firebase from 'firebase/app';
 export class SignupComponent{
 
   signupForm: FormGroup;
-  detailForm: FormGroup;
   user: any;
 
   constructor(public fb: FormBuilder, public auth: AuthService) { }
