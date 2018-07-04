@@ -72,3 +72,8 @@
   a {
       text-decoration: none;
   }
+
+  .error{
+    height: auto;
+    color: rgb(214, 39, 39);
+  }
