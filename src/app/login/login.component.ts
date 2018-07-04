@@ -14,6 +14,7 @@ import { AuthService} from '../Services/auth.service';
 export class LoginComponent implements OnInit{
 
   loginForm: FormGroup;
+  errorMessage: string;
 
   constructor(private authService: AuthService, public fb: FormBuilder) { }
 
@@ -37,7 +38,10 @@ export class LoginComponent implements OnInit{
 
   login()
   {
-    this.authService.login(this.email.value, this.password.value);
+    this.authService.login(this.email.value, this.password.value).catch(error => {
+      this.errorMessage = error;
+    }
+    );
   }
 
 }
