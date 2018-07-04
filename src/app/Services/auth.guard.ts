@@ -8,13 +8,16 @@ import { AuthService } from './auth.service';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private authService: AuthService, private router: Router){}
+  user: firebase.User;
+
+  constructor(private authService: AuthService, private router: Router){
+    this.user = this.authService.getFirebaseUser();
+  }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-        if (!this.authService.isAuthenticated()) {
-          this.router.navigate(['login']);
+        if (!this.authService.getFirebaseUser()) {
           return false;
         }
         return true;
