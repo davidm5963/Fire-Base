@@ -2,7 +2,7 @@
     display: flex;
     height: auto;
     width: 55%;
-    min-width: 400px;
+    min-width: 100px;
     border-radius: 5px;
     align-items:stretch;
     background-color: whitesmoke;
@@ -31,13 +31,13 @@
     padding: 10px;
     font-size: 1em;
     color: #333333;
-    height: auto
+    height: auto;
+    font-weight: 200;
 }
 
 .sender{
     display: block;
     color: #222;
-    font-weight: bold;
 }
 
 .isOwnSender{
