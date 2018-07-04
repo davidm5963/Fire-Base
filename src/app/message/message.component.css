@@ -1,8 +1,8 @@
 .messageContainer{
     display: flex;
     height: auto;
-    width: 55%;
-    min-width: 100px;
+    width: auto;
+    max-width: 55%;
     border-radius: 5px;
     align-items:stretch;
     background-color: whitesmoke;
