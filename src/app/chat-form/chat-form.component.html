@@ -1,10 +1,10 @@
-<form [formGroup]="chatForm" class='chatForm' [ngSubmit]=send()>
+<form [formGroup]="chatForm" class='chatForm' (ngSubmit)='send()'>
     <input 
     class="chatInput" 
-    formControlName = 'message'
+    formControlName ="message"
     (keydown)="handleSubmit($event)"
     />
 
-<button class="chatButton" 
-  (click)=send()>Send</button>
+<button type="submit" class="chatButton" 
+  [disabled]="chatForm.invalid" [ngClass]='{enabled : chatForm.valid}'>Send</button>
 </form>
