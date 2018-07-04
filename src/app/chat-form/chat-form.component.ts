@@ -23,6 +23,10 @@ export class ChatFormComponent implements OnInit {
     this.chatService.sendMessage(this.message.value);
   }
 
+  get message(){
+    return this.chatForm.get('message');
+  }
+
   handleSubmit(event)
   {
     if(event.keycode == 13)
