@@ -31,7 +31,7 @@
 
 .chatFormWrapper {
     display: flex;
-    height: 20%;
+    height: 15%;
     background-color: #333333;
     z-index: 3;
     position: relative;
