@@ -17,6 +17,7 @@ export class SignupComponent{
 
   signupForm: FormGroup;
   user: any;
+  errorMessage: string;
 
   constructor(public fb: FormBuilder, public auth: AuthService) { }
 
@@ -52,6 +53,9 @@ export class SignupComponent{
 
   // Step 1
   signup() {
-    return this.auth.signUp(this.email.value, this.password.value, this.displayName.value);
+    return this.auth.signUp(this.email.value, this.password.value, this.displayName.value).catch(error => {
+      console.log("Cathing error, setting to errorMessage")
+      this.errorMessage = error;
+    })
   }
 }
