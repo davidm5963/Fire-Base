@@ -1,4 +1,12 @@
-
+.chatForm{
+    display: flex;
+    height: 20%;
+    background-color: #333333;
+    z-index: 3;
+    position: absolute;
+    right: 0;
+    width: 75%;
+}
 .chatInput{
     flex: 10;
     outline: 0;
@@ -7,14 +15,15 @@
     margin-bottom: 0px;
     margin-top: 40px;
     display: block;
-    width: 40%;
+    width: 80%;
     height: 40px;
     background: transparent;
     border-bottom: #ccc 2px solid;
     color: #ccc;
-    padding: 0 0 0 25%;
+    padding: 0 0 0 2%;
     font-size:1.1em;
     transition: .4s;
+    float: right;
 }
 
 .chatInput:focus{
@@ -29,7 +38,7 @@
     margin: auto;
     margin: 10px 0 10px 0;
     border: 2px solid #ccc;
-    color: white;
+    color: #ccc;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -38,12 +47,10 @@
     background-color: transparent;
     outline: 0;
     transition: ease-in 0.2s;
-    cursor: pointer;
+    cursor: default;
     width: 5px;
-    
 }
-
-.chatButton:hover{
+.enabled:hover{
     border-color: rgb(214, 39, 39);
     color: rgb(214, 39, 39);
     cursor: pointer;
