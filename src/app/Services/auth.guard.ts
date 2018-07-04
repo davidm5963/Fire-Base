@@ -17,9 +17,12 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-        if (!this.authService.getFirebaseUser()) {
+        if(this.user != null){
+          return true;
+        }
+        else{
+          this.router.navigate(['login']);
           return false;
         }
-        return true;
       }
 }
