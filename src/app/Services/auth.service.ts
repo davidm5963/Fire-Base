@@ -42,7 +42,7 @@ export class AuthService {
   {
     return this.user;
   }
-  getFirestoreUser(){
+  getFirebaseUser(){
     return firebase.auth().currentUser;
   }
   //// Email/Password Auth ////
