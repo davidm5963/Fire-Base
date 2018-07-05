@@ -84,7 +84,8 @@ export class AuthService {
       uid: user.uid,
       email: user.email || null,
       status: 'online',
-      displayName: ''
+      displayName: '',
+      profileImageUrl: ''
     }
 
     return userRef.set(data)
