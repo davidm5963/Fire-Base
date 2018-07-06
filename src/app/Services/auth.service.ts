@@ -45,6 +45,12 @@ export class AuthService {
   getFirebaseUser(){
     return firebase.auth().currentUser;
   }
+
+  getUserDocById(uid: string)
+  {
+    var path = ('users/' + uid);
+    return this.afs.doc(path).ref; 
+  }
   //// Email/Password Auth ////
   
   signUp(email: string, password: string, displayName: string) {
