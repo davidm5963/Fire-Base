@@ -1,12 +1,34 @@
 <div *ngIf="user">
     <div class="container">
-        <img [src]="user.profileImageUrl" alt="Avatar" class="image" style="width:100%">
-        <div class="middle">
+        <img *ngIf="imageUrl" 
+              [src]="imageUrl" 
+              alt="profile image" 
+              class="image" 
+              [ngClass]="{'isOwnProfileImage' : isOwnProfile}">
+              
+        <div  *ngIf="isOwnProfile" class="middle">
             <label for="fileInput">
               <i class="material-icons text">edit</i>   
               <input id="fileInput" type="file" (change)="startUpload($event.target.files)">           
             </label>
 
         </div>
+      <div *ngIf="percentage | async as pct">
+
+          <progress class="progress is-info" 
+                    [value]="pct" 
+                    max="100">        
+          </progress>
+        
+          {{ pct | number }}%
+        
+        </div>
+      <div *ngIf="snapshot | async as snap">
+          
       </div>
+      <div>
+        {{isOwnProfile}}
+      </div>
+    </div>
+      
   </div>
