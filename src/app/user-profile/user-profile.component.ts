@@ -49,10 +49,46 @@ export class UserProfileComponent implements OnInit {
         console.log(this.user);
         
         this.imageUrl = this.storage.ref(this.user.profileImageUrl).getDownloadURL().subscribe(url => {
-        this.imageUrl = url;
+            this.imageUrl = url;
         });
       }
     );
+  }
+
+  //profile image handling
+
+  startUpload(event: FileList) {
+
+    console.log("startUpload() Called")
+    // The File object
+    const file = event.item(0);
+
+    // Client-side validation example
+    if (file.type.split('/')[0] !== 'image') { 
+      console.error('unsupported file type :( ')
+      return;
+    }
+
+    // The storage path
+    const path = `profileImages/${new Date().getTime()}_${file.name}`;
+
+    // The main upload task
+    this.task = this.storage.upload(path, file)
+
+    // Progress monitoring
+    this.percentage = this.task.percentageChanges();
+
+    this.snapshot = this.task.snapshotChanges().pipe(
+      tap(snap => {
+        if (snap.bytesTransferred === snap.totalBytes) {
+          // Update users profileImageUrl on completion
+          console.log("updating user ");
+          console.log(path)
+          this.afs.doc(this.authService.getUserDocById(this.uid)).update({ profileImageUrl:  path });
+        }
+      })
+    )
+
   }
 }
 
