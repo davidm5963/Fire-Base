@@ -47,7 +47,14 @@ export class UserProfileComponent implements OnInit {
     this.authService.getUserDocById(this.uid).get().then(doc =>{
         this.user = doc.data();
         console.log(this.user);
+        
+        this.imageUrl = this.storage.ref(this.user.profileImageUrl).getDownloadURL().subscribe(url => {
+        this.imageUrl = url;
+        });
       }
     );
-    }
-  } 
+  }
+}
+
+
+    
