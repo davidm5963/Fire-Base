@@ -10,7 +10,7 @@
 
   .helperMessage{
       height: 15px;
-      color: rgb(214, 39, 39);
+      color:#1E88E5;
       transition: .3s;
   }
   
@@ -32,7 +32,7 @@
   }
 
   .formInputInvalid{
-    border-bottom: rgb(214, 39, 39) 1px solid;      
+    border-bottom:#1E88E5 1px solid;      
   }
 
   .formInputValid{
@@ -65,8 +65,8 @@
   }
 
   .btnInvalid{
-    border: rgb(214, 39, 39) 2px solid;
-    color: rgb(214, 39, 39);
+    border:#1E88E5 2px solid;
+    color:#1E88E5;
     transition: ease-in 0.2s;      
   }
   
@@ -88,5 +88,5 @@
 
   .error{
     height: auto;
-    color: rgb(214, 39, 39);
+    color:#1E88E5;
   }

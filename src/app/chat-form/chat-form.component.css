@@ -27,7 +27,7 @@
 }
 
 .chatInput:focus{
-    border-color: rgb(214, 39, 39);
+    border-color:#1E88E5;
     color: #ccc;
     transition: 0.2s ease-in;
 }
@@ -51,7 +51,7 @@
     width: 5px;
 }
 .enabled:hover{
-    border-color: rgb(214, 39, 39);
-    color: rgb(214, 39, 39);
+    border-color:#1E88E5;
+    color:#1E88E5;
     cursor: pointer;
 }
