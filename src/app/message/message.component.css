@@ -3,7 +3,6 @@
     height: auto;
     width: auto;
     max-width: 55%;
-    border-radius: 5px;
     align-items:stretch;
     background-color: whitesmoke;
     box-shadow: 0 3px 6px rgba(0,0,0,0.26), 0 3px 6px rgba(0,0,0,0.23);
@@ -11,37 +10,24 @@
 
 .isOwnMessageContainer{
     float: right;
-}
-.isOwnMessageContainer .messageData{
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    
 }
 
 .isOtherMessageContainer{
     float: left;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    
 }
-.isOtherMessageContainer .messageData{
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
+
 
 .messageData{ 
-    background-color: #ccc;
-    flex: 1.5;
-    padding: 10px;
-    font-size: 1em;
-    color: #333333;
-    height: auto;
-    font-weight: 200;
-}
-
-.sender{
-    display: block;
-    color: #222;
-}
-
-.isOwnSender{
-    color: #E1F5FE;
+    float: left;
+    background: transparent;
 }
 
 .timeStamp {
@@ -49,19 +35,27 @@
     text-align: center;
 }
 
-.isOwnTimestamp{
-    color: #4FC3F7;
-}
-
 .messageContent{
     height: auto;
     flex: 9;
     padding: 10px;
-    border-radius: 10px;
     color: #333333;
 }
 
-.isOwnMessageContent{
-    background-color: #E3F2FD;
+.isOwnMessageContainer{
+    background-color: rgb(204, 234, 255);
     color: #01579B;
+}
+
+.profileImage{
+    height: 72px;
+    width: 72px;
+    border-radius: 50%;
+    margin: 10px;    
+    margin-top: 0;
+    border: 3px solid whitesmoke;
+}
+
+.profileImage:hover{
+ cursor: pointer;   
 }
