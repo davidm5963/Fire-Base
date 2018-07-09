@@ -35,8 +35,7 @@ export class ChatService{
         this.getMessages().add({
           timeSent: new Date().toUTCString(),
           message: msg,
-          displayName: this.user.displayName,
-          email: this.user.email,
+          user: this.user
         });
       }
     })
