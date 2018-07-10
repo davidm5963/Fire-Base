@@ -35,7 +35,9 @@ export class UserProfileComponent implements OnInit {
                 this.uid = this.route.snapshot.params['uid'];
                 
                 //check if current user is viewing own profile
-                 this.isOwnProfile = this.uid === this.authService.getFirebaseUser().uid;
+                authService.getCurrentUser().subscribe(user =>{
+                  this.isOwnProfile = this.uid === user.uid;
+                });
 
                  console.log(this.isOwnProfile);
                  console.log(this.uid)
