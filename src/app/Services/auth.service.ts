@@ -91,7 +91,7 @@ export class AuthService {
       email: user.email || null,
       status: 'online',
       displayName: '',
-      profileImageUrl: '/profileImages/generic-profile-image.jpg'
+      profileImageUrl: 'profileImages/generic-profile-image.jpg'
     }
 
     return userRef.set(data)
