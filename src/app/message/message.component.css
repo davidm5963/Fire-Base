@@ -4,8 +4,8 @@
     width: auto;
     max-width: 55%;
     align-items:stretch;
-    background-color: whitesmoke;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.26), 0 3px 6px rgba(0,0,0,0.23);
+    background-color: rgba(245, 245, 245, 0.6);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.15);
 }
 
 .isOwnMessageContainer{
@@ -28,6 +28,7 @@
 .messageData{ 
     float: left;
     background: transparent;
+    outline: 0;
 }
 
 .timeStamp {
@@ -43,8 +44,7 @@
 }
 
 .isOwnMessageContainer{
-    background-color: rgb(204, 234, 255);
-    color: #01579B;
+    background-color: rgb(204, 234, 255, 0.8);
 }
 
 .profileImage{
@@ -54,6 +54,11 @@
     margin: 10px;    
     margin-top: 0;
     border: 3px solid whitesmoke;
+    outline: 0;
+}
+
+.sender{
+    outline: 0;
 }
 
 .profileImage:hover{
