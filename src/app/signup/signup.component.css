@@ -10,7 +10,7 @@
 
   .helperMessage{
       height: 15px;
-      color:#1E88E5;
+      color:rgb(239, 14, 14);
       transition: .3s;
   }
   
@@ -32,7 +32,7 @@
   }
 
   .formInputInvalid{
-    border-bottom:#1E88E5 1px solid;      
+    border-bottom:rgb(239, 14, 14) 1px solid;      
   }
 
   .formInputValid{
@@ -54,19 +54,20 @@
     background-color: transparent;
     outline: 0;
     transition: ease-in 0.2s;
-    cursor: pointer;
   }
 
   
   .btnValid{
     border: #5cb85c 2px solid;
     color: #5cb85c;
-    transition: ease-in 0.2s;      
+    transition: ease-in 0.2s;   
+    cursor: pointer;
+       
   }
 
   .btnInvalid{
-    border:#1E88E5 2px solid;
-    color:#1E88E5;
+    border:rgb(239, 14, 14) 2px solid;
+    color:rgb(239, 14, 14);
     transition: ease-in 0.2s;      
   }
   
@@ -88,5 +89,5 @@
 
   .error{
     height: auto;
-    color:#1E88E5;
+    color:rgb(239, 14, 14);
   }
