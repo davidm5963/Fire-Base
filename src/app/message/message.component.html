@@ -1,37 +1,39 @@
 <!-- template for non current users messages -->
 <div *ngIf="!isOwnMessage">
-    <div class="timeStamp">
-      <small>
-          {{ timeSent | date:'short'}}
-      </small>
-    </div>
-    <div class="messageContainer" [ngClass]="{'isOtherMessageContainer' : !isOwnMessage}">
-      <div class="messageData">
-        <span class="sender">
-          {{displayName}}
-        </span>
-      </div>
-      <div class="messageContent">
-        {{ message }}
-      </div>
-    </div>
-</div>
-
-<!-- template for current users messages -->
-<div *ngIf="isOwnMessage">
-    <div class="timeStamp">
-        <small>
-            {{ timeSent | date:'short'}}
-        </small>
-    </div>
-    <div class="messageContainer" [ngClass]="{'isOwnMessageContainer' : isOwnMessage}">
-        <div class="messageContent">
-          {{ message }}
-        </div>
-        <div class="messageData">
-            <span class="sender">
-              {{displayName}}
-            </span>
-          </div>
-      </div>
-</div>
+                <div class="timeStamp">
+                  <small>
+                      {{ timeSent | date:'short'}}
+                  </small>
+                </div>
+                <div class="messageData">
+                    <span class="sender" [routerLink]="['/user/', chatMessage.user.uid]">
+                        <img *ngIf="profileImageUrl" 
+                        [src]="profileImageUrl" 
+                        alt="profile image" 
+                        class="profileImage">
+                    </span>
+                </div>
+                <div class="messageContainer" [ngClass]="{'isOtherMessageContainer' : !isOwnMessage}">
+            
+                  <div class="messageContent">
+                    {{ message }}
+                  </div>
+                </div>
+            </div>
+            
+            <!-- template for current users messages -->
+            <div *ngIf="isOwnMessage">
+                <div class="timeStamp">
+                    <small>
+                        {{ timeSent | date:'short'}}
+                    </small>
+                </div>
+                
+                <div class="messageContainer" [ngClass]="{'isOwnMessageContainer' : isOwnMessage}">
+                    <div class="messageContent">
+                      {{ message }}
+                    </div>
+                    
+                </div>
+            
+            </div>            
