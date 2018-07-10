@@ -48,7 +48,7 @@ export class UserProfileComponent implements OnInit {
         this.user = doc.data();
         console.log(this.user);
         
-        this.imageUrl = this.storage.ref(this.user.profileImageUrl).getDownloadURL().subscribe(url => {
+        this.storage.ref(this.user.profileImageUrl).getDownloadURL().subscribe(url => {
             this.imageUrl = url;
         });
       }

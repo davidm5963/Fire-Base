@@ -30,8 +30,8 @@ export class MessageComponent implements OnInit {
     this.message = chatMessage.message;
     this.timeSent = chatMessage.timeSent;
 
-    this.profileImageUrl = this.storage.ref(chatMessage.user.profileImageUrl).getDownloadURL().subscribe(url => {
-      this.profileImageUrl = url;
+    this.storage.ref(chatMessage.user.profileImageUrl).getDownloadURL().subscribe(url => {
+    this.profileImageUrl = url;
   });
   }
 
