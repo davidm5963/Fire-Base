@@ -1,18 +1,20 @@
 <div *ngIf="user" class="profile">
-    <div class="container">
-        <img *ngIf="imageUrl" 
+
+    <div class="imageContent" [ngClass]="{'isOwnProfileImage' : isOwnProfile}">
+          <div class="content-overlay"></div>
+          <img *ngIf="imageUrl" 
               [src]="imageUrl" 
               alt="profile image" 
-              class="image" 
-              [ngClass]="{'isOwnProfileImage' : isOwnProfile}">
+              class="profileImage" 
+              >
 
-        <div  *ngIf="isOwnProfile" class="middle">
-            <label for="fileInput">
-              <i class="material-icons text">edit</i>   
-              <input id="fileInput" type="file" (change)="startUpload($event.target.files)">           
-            </label>
-
-        </div>
+          <div class="content-details fadeIn-top">
+              <label for="fileInput">
+                  <i class="material-icons text">edit</i>   
+                  <input id="fileInput" type="file" (change)="startUpload($event.target.files)">                             
+                </label> 
+          </div>
+      </div>
       <div *ngIf="percentage | async as pct">
 
           <progress class="progress is-info" 
@@ -23,12 +25,12 @@
           {{ pct | number }}%
         
         </div>
+
       <div *ngIf="snapshot | async as snap">
           
       </div>
       <div class="displayName">
         {{user.displayName}}
       </div>
-    </div>
+</div>
       
-  </div>
