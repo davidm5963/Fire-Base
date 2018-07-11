@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit{
   loginForm: FormGroup;
   errorMessage: string;
 
-  constructor(private authService: AuthService, public fb: FormBuilder) {
+  constructor(private authService: AuthService, public fb: FormBuilder, private router: Router) {
    }
 
   ngOnInit(){
@@ -39,7 +39,10 @@ export class LoginComponent implements OnInit{
 
   login()
   {
-    this.authService.login(this.email.value, this.password.value).catch(error => {
+    this.authService.login(this.email.value, this.password.value).then(success => {
+      this.router.navigate(['/chat']);      
+    }
+    ).catch(error => {
       this.errorMessage = error;
     }
     );
