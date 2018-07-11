@@ -19,7 +19,6 @@ export class MessageComponent implements OnInit {
   profileImagePath: string;
 
   constructor(private authService: AuthService, private storage: AngularFireStorage) {
-      console.log(authService.getCurrentUser())
       authService.getCurrentUser().subscribe(user =>{
         this.isOwnMessage = this.chatMessage.user.email === user.email;
       });
