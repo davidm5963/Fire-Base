@@ -8,19 +8,17 @@ import { AuthService } from './auth.service';
 })
 export class AuthGuard implements CanActivate {
 
-  user: firebase.User;
-
   constructor(private authService: AuthService, private router: Router){
-    this.user = this.authService.getFirebaseUser();
   }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-        if(this.user != null){
+        if(this.authService.getFirebaseUser() !== null){
           return true;
         }
         else{
+          console.log("Access Denied!")
           this.router.navigate(['login']);
           return false;
         }
