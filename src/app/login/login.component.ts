@@ -15,17 +15,11 @@ export class LoginComponent implements OnInit{
 
   loginForm: FormGroup;
   errorMessage: string;
-  currentUser: firebase.User;
 
   constructor(private authService: AuthService, public fb: FormBuilder) {
-    this.currentUser = this.authService.getFirebaseUser()
    }
 
   ngOnInit(){
-
-    if(this.currentUser){
-      this.authService.signOut();
-    }
 
     this.loginForm = this.fb.group({
       'email': ['', [
