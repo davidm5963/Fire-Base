@@ -67,7 +67,6 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
         this.updateData({status: 'online'});                
-        this.router.navigate(['chat']);
       });
   }
 
