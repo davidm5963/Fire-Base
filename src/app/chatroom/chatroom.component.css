@@ -1,7 +1,7 @@
 .mainContent{
     display: flex;
     background: 
-        linear-gradient(181deg, rgba(41, 62, 145, 0.5), rgba(0, 0, 0, 0.6)),
+        linear-gradient(181deg, rgba(41, 62, 145, 0.5), rgba(0, 0, 0, 0.7)),
         url('https://happywall-img-gallery.imgix.net/315/dimmig_skog_svartvit_display.jpg') center center no-repeat;;
 }
 
