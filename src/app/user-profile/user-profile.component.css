@@ -38,9 +38,11 @@
 .imageContent {
     position: relative;
     width: 200px;
-    height: 200px;
+    height: auto;
     margin: auto;
+    padding-top: 20px;
     overflow: hidden;
+
   }
   
   .imageContent .content-overlay {
@@ -54,12 +56,13 @@
     bottom: 0;
     right: 0;
     opacity: 0;
+    margin-top: 20px;
     -webkit-transition: all 0.4s ease-in-out 0s;
     -moz-transition: all 0.4s ease-in-out 0s;
     transition: all 0.4s ease-in-out 0s;
   }
   
-  .imageContent:hover .content-overlay{
+  .isOwnProfileImage:hover .content-overlay{
     opacity: 1;
   }
   
