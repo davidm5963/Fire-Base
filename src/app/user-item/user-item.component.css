@@ -1,14 +1,16 @@
 .userItem{
     height: auto;
-    padding: 10px;
     width: 90%;
     height: 100%;
-    margin-top: 10px;
-    border-radius: 15px;
-    background-color: rgb(31, 31, 31);
     align-items:flex-start;
     color:whitesmoke;
     transition: ease-in 0.2s;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.userItem:hover{
+    color: white;
 }
 .online{
     background-color: #0FA;
