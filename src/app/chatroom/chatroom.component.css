@@ -13,8 +13,14 @@
     font-size: 1.2em;
     flex: 1.2;
     order: 1;
-    padding:20px 0px 40px 30px;
+    padding:40px 10px 40px 15px;
     overflow-y: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .userListWrapper {
+        display: none;
+    }
 }
 
 .feedWrapper {
