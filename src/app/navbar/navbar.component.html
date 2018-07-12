@@ -8,7 +8,7 @@
       <a *ngIf="!user" routerLink="/signup">Sign Up</a>
     </span>
     <span>
-      <a id="userEmail" *ngIf="user" routerLink="/user/{{user.uid}}">Hello, {{user.displayName}}</a>
+      <a id="userEmail" *ngIf="user" [routerLink]="['/user', user.uid]">Hello, {{user.displayName}}</a>
     </span>
     <span>
       <a *ngIf="user" href="#" (click)="logout()">Logout</a>
