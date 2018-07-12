@@ -9,17 +9,8 @@
     display: inline-block;
     background-size: cover;
     margin: 12px 10px 12px 32px;
-    width: 60px;
-    height: 60px;
-    min-width: 60px;
-}
-
-#heading{
+    height: 70px;
     flex: 4;
-    padding: 24px 0px 8px 10px;
-    height: 60px;
-    font-size: 1.8em;
-    font-weight: bold;
 }
 
 .links{
@@ -27,11 +18,6 @@
     padding-right: 30px;
     white-space: nowrap;
     display: block;
-}
-
-#heading > a{
-    text-decoration: none;
-    color: rgb(224, 26, 26);
 }
 
 .links a{
