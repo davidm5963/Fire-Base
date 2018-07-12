@@ -1,10 +1,13 @@
 .mainContent{
     display: flex;
+    background: 
+        linear-gradient(181deg, rgba(41, 62, 145, 0.5), rgba(0, 0, 0, 0.6)),
+        url('https://happywall-img-gallery.imgix.net/315/dimmig_skog_svartvit_display.jpg') center center no-repeat;;
 }
 
 .userListWrapper {
-    background: whitesmoke;
-    color: #fff;
+    color: whitesmoke;
+    background: rgba(255, 255, 255, 0.4);
     display: flex;
     font-family: "Open Sans", sans-serif;
     font-size: 1.2em;
@@ -12,15 +15,11 @@
     order: 1;
     padding:20px 0px 40px 30px;
     overflow-y: auto;
-    
-    border-right: 1px solid #222;
 }
 
 .feedWrapper {
-    background-color: #fff;
-    background: 
-        linear-gradient(181deg, rgba(15, 23, 56, 0.5), rgba(0, 0, 0, 0.986)),
-        url('https://happywall-img-gallery.imgix.net/315/dimmig_skog_svartvit_display.jpg') center center no-repeat;;
+    background-color: transparent;
+    
     font-family: "Open Sans", sans-serif;
     font-size: 1.2em;
     flex: 5;
