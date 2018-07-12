@@ -1,7 +1,7 @@
-<div class="userItem" [routerLink]="['/user', user.uid]">
+<a class="userItem" [routerLink]="['/user', user.uid]">
     <span class="status" [ngClass]=(user.status)>
     </span>
     <span class="userName">
       {{user.displayName}}
     </span>
-  </div>
+  </a>
