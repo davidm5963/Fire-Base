@@ -25,26 +25,13 @@ export class ChatService{
 
   sendMessage(msg: string){
 
-    this.afs.doc(`users/${firebase.auth().currentUser.uid}`).ref.get().then(doc => {
-      if (!doc.exists) {
-        console.log('No such document!');
-      } else {
-        console.log('Document data:', doc.data());
-
-        this.user = doc.data();
         this.getMessages().add({
           timeSent: new Date().toUTCString(),
           message: msg,
-          user: this.user
+          uid: firebase.auth().currentUser.uid
         });
       }
-    })
-    .catch(err => {
-      console.log('Error getting document', err);
-    });
-    
-    console.log("Called sendMessage()");
-  }
+  
 
   getMessages(){
     this.chatMessagesCollection = this.afs.collection('chatMessage', ref => ref.orderBy('timeSent'));

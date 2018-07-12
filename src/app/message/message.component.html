@@ -1,4 +1,6 @@
 <!-- template for non current users messages -->
+<div *ngIf="currentUser">
+
 <div *ngIf="!isOwnMessage">
                 <div class="timeStamp">
                   <small>
@@ -6,7 +8,7 @@
                   </small>
                 </div>
                 <div class="messageData">
-                    <span class="sender" [routerLink]="['/user/', chatMessage.user.uid]">
+                    <span class="sender" [routerLink]="['/user/', chatMessage.uid]">
                         <img *ngIf="profileImageUrl" 
                         [src]="profileImageUrl" 
                         alt="profile image" 
@@ -19,21 +21,22 @@
                     {{ message }}
                   </div>
                 </div>
-            </div>
+</div>
             
             <!-- template for current users messages -->
-            <div *ngIf="isOwnMessage">
-                <div class="timeStamp">
-                    <small>
-                        {{ timeSent | date:'short'}}
-                    </small>
-                </div>
+<div *ngIf="isOwnMessage">
+    <div class="timeStamp">
+        <small>
+            {{ timeSent | date:'short'}}
+        </small>
+    </div>
                 
-                <div class="messageContainer" [ngClass]="{'isOwnMessageContainer' : isOwnMessage}">
-                    <div class="messageContent">
-                      {{ message }}
-                    </div>
+    <div class="messageContainer" [ngClass]="{'isOwnMessageContainer' : isOwnMessage}">
+        <div class="messageContent">
+            {{ message }}
+        </div>
                     
-                </div>
+    </div>
             
-            </div>            
+</div>            
+</div>

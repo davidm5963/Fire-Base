@@ -3,6 +3,7 @@ import { ChatService } from '../Services/chat.service';
 import { AuthService } from '../Services/auth.service';
 import { ChatMessage } from '../Models/chat-message.model'
 import { AngularFireStorageModule, AngularFireStorage } from 'angularfire2/storage';
+import { User } from '../Models/user.model';
 
 @Component({
   selector: 'app-message',
@@ -16,11 +17,13 @@ export class MessageComponent implements OnInit {
   timeSent: string;
   isOwnMessage: boolean;
   profileImageUrl: any;
-  profileImagePath: string;
+  currentUser: any;
+  messageSender: any;
 
   constructor(private authService: AuthService, private storage: AngularFireStorage) {
       authService.getCurrentUser().subscribe(user =>{
-        this.isOwnMessage = this.chatMessage.user.email === user.email;
+        this.currentUser = user;
+        this.isOwnMessage = this.chatMessage.uid === user.uid;
       });
     
    }
@@ -28,10 +31,15 @@ export class MessageComponent implements OnInit {
   ngOnInit(chatMessage = this.chatMessage) {
     this.message = chatMessage.message;
     this.timeSent = chatMessage.timeSent;
+    this.authService.getUserDocById(chatMessage.uid).get().then(doc =>
+      {
+        this.messageSender = doc.data();
+        this.storage.ref(this.messageSender.profileImageUrl).getDownloadURL().subscribe(url => {
+          this.profileImageUrl = url;
+          });
+      });
 
-    this.storage.ref(chatMessage.user.profileImageUrl).getDownloadURL().subscribe(url => {
-    this.profileImageUrl = url;
-  });
+
   }
 
 
