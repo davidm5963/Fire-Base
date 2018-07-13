@@ -9,6 +9,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Built with
 
 Angular 6
+
 Firebase
 
 ## Code scaffolding
