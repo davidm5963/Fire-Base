@@ -1,5 +1,6 @@
 <div class="feed">
-  <div *ngFor="let message of feed | async" class="message">
-    <app-message [chatMessage]=message></app-message>
+  <div *ngFor="let message of feed | async" class='message'>
+    <app-message *ngIf="!recieverUid" [chatMessage]=message></app-message>
+    <app-direct-message *ngIf="recieverUid" [chatMessage]=message></app-direct-message>
   </div>
 </div>
