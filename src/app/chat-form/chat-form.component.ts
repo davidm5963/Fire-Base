@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../Services/chat.service'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-chat-form',
@@ -10,8 +11,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ChatFormComponent implements OnInit {
 
   chatForm: FormGroup;
+  recieverUid: string;
 
-  constructor(private fb: FormBuilder, private chatService: ChatService) { }
+  constructor(private fb: FormBuilder, private chatService: ChatService, private route: ActivatedRoute) {
+    this.recieverUid = this.route.snapshot.params['uid'];    
+   }
 
   ngOnInit() {
     this.chatForm = this.fb.group({
@@ -20,9 +24,13 @@ export class ChatFormComponent implements OnInit {
   }
 
   send(){
-    this.chatService.sendMessage(this.message.value);
+    if(this.recieverUid == null || this.recieverUid == undefined){
+      this.chatService.sendMessage(this.message.value);      
+    }
+    else{
+      this.chatService.sendDirectMessage(this.message.value, this.recieverUid)
+    }
     this.chatForm.reset();
-    
   }
 
   get message(){
