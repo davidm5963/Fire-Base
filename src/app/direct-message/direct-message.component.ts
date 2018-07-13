@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DirectMessage } from '../Models/direct-message.model';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-direct-message',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectMessageComponent implements OnInit {
 
-  constructor() { }
+  @Input() chatMessage: DirectMessage;
+  message: string;
+  timeSent: string;
+  isOwnMessage: boolean;
+  profileImageUrl: any;
+  currentUser: any;
+  messageSender: any;
 
-  ngOnInit() {
+  constructor() {
+   }
+
+  ngOnInit(chatMessage = this.chatMessage) {
+    this.message = chatMessage.chatMessage.message;
+    this.timeSent = chatMessage.chatMessage.timeSent;
+    this.isOwnMessage = this.chatMessage.chatMessage.uid === firebase.auth().currentUser.uid;
+    
   }
+
 
 }
