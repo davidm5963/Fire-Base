@@ -27,6 +27,8 @@ import { ChatService } from './Services/chat.service'
 import { environment } from '../environments/environment';
 import { AuthGuard } from './Services/auth.guard';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserComponent } from './user/user.component';
+import { DirectMessageComponent } from './direct-message/direct-message.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     UserListComponent,
     UserItemComponent,
     ChatroomComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UserComponent,
+    DirectMessageComponent
   ],
   imports: [
     BrowserModule,
