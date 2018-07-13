@@ -2,7 +2,8 @@ import { Injectable, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth'; 
-import { Observable } from 'rxjs';
+import { Observable, combineLatest } from 'rxjs';
+import { map } from 'rxjs/operators'
 import { AuthService } from '../services/auth.service';
 import * as firebase from 'firebase/app';
 
@@ -17,7 +18,9 @@ export class ChatService{
 
   user: any;
   chatMessagesCollection: AngularFirestoreCollection<ChatMessage>;
-  directMessagesCollection: AngularFirestoreCollection<DirectMessage>;
+  directMessagesCollection: Observable<any>;
+  recievedDirectMessagesCollection: AngularFirestoreCollection<DirectMessage>;
+  sentDirectMessagesCollection: AngularFirestoreCollection<DirectMessage>;
 
   usersCollection: AngularFirestoreCollection<User>;
   
@@ -34,7 +37,7 @@ export class ChatService{
   }
 
   sendDirectMessage(msg: string, recieverUid: string){
-      this.getDirectMessages(recieverUid).add({
+      this.getSentDirectMessages(recieverUid).add({
         chatMessage: {
           timeSent: new Date().toUTCString(),
           message: msg,
@@ -50,12 +53,21 @@ export class ChatService{
     return this.chatMessagesCollection;
   }
 
-  getDirectMessages(uid: string){
-    console.log('retrieving direct messages...')
-    this.directMessagesCollection = this.afs.collection('directMessage', 
-                                    ref => ref.where('recieverUid', '==', uid).where('chatMessage.uid', '==', firebase.auth().currentUser.uid));
-    return this.directMessagesCollection;
+  getSentDirectMessages(uid: string){
+    return this.sentDirectMessagesCollection = this.afs.collection('directMessage', 
+      ref => ref.where('recieverUid', '==', uid).where('chatMessage.uid', '==', firebase.auth().currentUser.uid).orderBy('chatMessage.timeSent'));
+  }
 
+  getRecievedDirectMessagees(uid: string){
+    return this.recievedDirectMessagesCollection = this.afs.collection('directMessage', 
+      ref => ref.where('recieverUid', '==', firebase.auth().currentUser.uid).where('chatMessage.uid', '==', uid).orderBy('chatMessage.timeSent'));     
+  }
+
+  getDirectMessages(uid: string){     
+    //use combineLatest to merge sent direct messages and recieved direct mesages into single observable                               
+     return this.directMessagesCollection = combineLatest<any[]>(this.getRecievedDirectMessagees(uid).valueChanges(),this.getSentDirectMessages(uid).valueChanges()).pipe(
+      map(arr => arr.reduce((acc, cur) => acc.concat(cur) ) ),
+      );
   }
 
   getUsers()
