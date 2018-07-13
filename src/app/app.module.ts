@@ -29,6 +29,7 @@ import { AuthGuard } from './Services/auth.guard';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserComponent } from './user/user.component';
 import { DirectMessageComponent } from './direct-message/direct-message.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { DirectMessageComponent } from './direct-message/direct-message.componen
     ChatroomComponent,
     UserProfileComponent,
     UserComponent,
-    DirectMessageComponent
+    DirectMessageComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
