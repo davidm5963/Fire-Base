@@ -9,6 +9,7 @@
                 </div>
                 <div class="messageData">
                     <span class="sender" [routerLink]="['/user/', chatMessage.uid]">
+                    <app-loading-spinner *ngIf="showLoadingSpinner"></app-loading-spinner>                                      
                         <img *ngIf="profileImageUrl" 
                         [src]="profileImageUrl" 
                         alt="profile image" 

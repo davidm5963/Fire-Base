@@ -15,6 +15,7 @@ export class FeedComponent implements OnInit, OnChanges {
 
   feed: Observable<any>;
   recieverUid: string;
+  showLoadingSpinner = true;
 
   constructor(private chatService: ChatService, private route: ActivatedRoute) {
     this.recieverUid = this.route.snapshot.params['uid'];    
@@ -22,11 +23,13 @@ export class FeedComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     if(this.recieverUid == null || this.recieverUid == undefined){
-      this.feed = this.chatService.getMessages().valueChanges()
+      this.feed = this.chatService.getMessages().valueChanges();
+      this.chatService.getMessages().valueChanges().subscribe(() => this.showLoadingSpinner = false)
       console.log(this.feed);
     }
     else{
       this.feed = this.chatService.getDirectMessages(this.recieverUid);
+      this.chatService.getMessages().valueChanges().subscribe(() => this.showLoadingSpinner = false)      
       console.log(this.feed);
     }
   }

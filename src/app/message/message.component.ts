@@ -19,6 +19,7 @@ export class MessageComponent implements OnInit {
   profileImageUrl: any;
   currentUser: any;
   messageSender: any;
+  showLoadingSpinner=true;
 
   constructor(private authService: AuthService, private storage: AngularFireStorage) {
       authService.getCurrentUser().subscribe(user =>{
@@ -35,6 +36,7 @@ export class MessageComponent implements OnInit {
       {
         this.messageSender = doc.data();
         this.storage.ref(this.messageSender.profileImageUrl).getDownloadURL().subscribe(url => {
+          this.showLoadingSpinner = false;
           this.profileImageUrl = url;
           });
       });
