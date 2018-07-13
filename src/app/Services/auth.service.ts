@@ -72,22 +72,16 @@ export class AuthService {
 
   // Update properties on the user document
   updateData(data: any) { 
-    console.log("updating statsu")
-    var user = firebase.auth().currentUser;
-    console.log(user);
-    return this.afs.doc(`users/${user.uid}/`).update(data)
+    return this.afs.doc(`users/${this.getFirebaseUser().uid}/`).update(data)
   }
 
   // Sets user data to firestore after succesful login
   private setUserDoc() {
-
-    var user = firebase.auth().currentUser;    
-    console.log(user)
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${this.getFirebaseUser().uid}`);
 
     const data: User = {
-      uid: user.uid,
-      email: user.email || null,
+      uid: this.getFirebaseUser().uid,
+      email: this.getFirebaseUser().email || null,
       status: 'online',
       displayName: '',
       profileImageUrl: 'profileImages/generic-profile-image.jpg'
