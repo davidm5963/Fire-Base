@@ -8,7 +8,7 @@
               class="profileImage" 
               >
 
-          <div class="content-details fadeIn-top">
+          <div *ngIf='isOwnProfile' class="content-details fadeIn-top">
               <label for="fileInput">
                   <i class="material-icons text">edit</i>   
                   <input id="fileInput" type="file" (change)="startUpload($event.target.files)">                             
@@ -17,7 +17,9 @@
       </div>
 
       <div *ngIf="snapshot | async as snap">
-          
+      </div>
+      <div class="status" [ngClass]="user.status">
+          <span class="status-text">{{user.status}}</span>
       </div>
       <div class="displayName">
         {{user.displayName}}
