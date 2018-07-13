@@ -26,9 +26,8 @@ export class FeedComponent implements OnInit, OnChanges {
       console.log(this.feed);
     }
     else{
-      this.feed = this.chatService.getDirectMessages(this.recieverUid).valueChanges();
-    console.log(this.feed);
-      
+      this.feed = this.chatService.getDirectMessages(this.recieverUid);
+      console.log(this.feed);
     }
   }
 
