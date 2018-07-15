@@ -1,3 +1,29 @@
-<p>
-  direct-message works!
-</p>
+<div *ngIf="!isOwnMessage">
+    <div class="timeStamp">
+      <small>
+          {{ timeSent | date:'short'}}
+      </small>
+    </div>
+    <div class="messageContainer" [ngClass]="{'isOtherMessageContainer' : !isOwnMessage}">
+      <div class="messageContent">
+        {{ message }}
+      </div>
+    </div>
+</div>
+
+<!-- template for current users messages -->
+<div *ngIf="isOwnMessage">
+<div class="timeStamp">
+<small>
+{{ timeSent | date:'short'}}
+</small>
+</div>
+    
+<div class="messageContainer" [ngClass]="{'isOwnMessageContainer' : isOwnMessage}">
+<div class="messageContent">
+{{ message }}
+</div>
+        
+</div>
+
+</div>   
