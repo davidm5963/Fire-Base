@@ -1,0 +1,50 @@
+.mainContent{
+    display: flex;
+    background: 
+        linear-gradient(181deg, rgba(41, 62, 145, 0.5), rgba(0, 0, 0, 0.7)),
+        url('https://happywall-img-gallery.imgix.net/315/dimmig_skog_svartvit_display.jpg') center center no-repeat;;
+}
+
+.userProfileWrapper {
+    color: whitesmoke;
+    background: rgba(255, 255, 255, 0.4);
+    display: flex;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.2em;
+    flex: 1.2;
+    order: 1;
+    padding-left: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .userProfileWrapper {
+        display: none;
+    }
+}
+
+.feedWrapper {
+    background-color: transparent;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.2em;
+    flex: 5;
+    order: 2;
+    overflow-y: scroll;
+    padding:24px;
+}
+
+.chatFormWrapper {
+    height: 15%;
+    background-color: #333333;
+    z-index: 3;
+    position: relative;
+}
+
+#scroll-style::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+app-user-profile {
+    width: 100%;
+}
