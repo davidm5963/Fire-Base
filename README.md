@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
+![Alt text](https://drive.google.com/open?id=1LPbzoflKN2mK1KjPxx-9RHAtzYeBCiyM "Main Chat")
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -10,7 +13,20 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Angular 6
 
+TypeScript
+
 Firebase
+
+### Get the Code
+
+Either clone this repository or fork it on GitHub and clone your fork:
+
+```
+https://github.com/davidm5963/Fire-Chat.git
+cd Fire-Chat
+```
+
+
 
 ## Code scaffolding
 
