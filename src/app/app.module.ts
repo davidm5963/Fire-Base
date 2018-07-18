@@ -9,16 +9,16 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore'
 import { AngularFireStorageModule } from 'angularfire2/storage';
 
-import { AppComponent } from './app.component';
-import { ChatFormComponent } from './chat-form/chat-form.component';
-import { FeedComponent } from './feed/feed.component';
-import { MessageComponent } from './message/message.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserItemComponent } from './user-item/user-item.component';
-import { ChatroomComponent } from './chatroom/chatroom.component';
+import { AppComponent } from './components/app/app.component';
+import { ChatFormComponent } from './components/chat-form/chat-form.component';
+import { FeedComponent } from './components/feed/feed.component';
+import { MessageComponent } from './components/message/message.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { UserItemComponent } from './components/user-item/user-item.component';
+import { ChatroomComponent } from './components/chatroom/chatroom.component';
 
 import { appRoutes } from './Routes'
 
@@ -26,10 +26,11 @@ import { AuthService } from './Services/auth.service'
 import { ChatService } from './Services/chat.service'
 import { environment } from '../environments/environment';
 import { AuthGuard } from './Services/auth.guard';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { UserComponent } from './user/user.component';
-import { DirectMessageComponent } from './direct-message/direct-message.component';
-import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserComponent } from './components/user/user.component';
+import { DirectMessageComponent } from './components/direct-message/direct-message.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 
 @NgModule({
