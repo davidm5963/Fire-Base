@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService} from '../Services/auth.service';
+import { AuthService} from '../../Services/auth.service';
 import { ChatroomComponent } from '../chatroom/chatroom.component';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';

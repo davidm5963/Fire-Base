@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ChatService } from '../Services/chat.service';
-import { AuthService } from '../Services/auth.service';
-import { ChatMessage } from '../Models/chat-message.model'
+import { ChatService } from '../../Services/chat.service';
+import { AuthService } from '../../Services/auth.service';
+import { ChatMessage } from '../../Models/chat-message.model'
 import { AngularFireStorageModule, AngularFireStorage } from 'angularfire2/storage';
-import { User } from '../Models/user.model';
+import { User } from '../../Models/user.model';
 
 @Component({
   selector: 'app-message',

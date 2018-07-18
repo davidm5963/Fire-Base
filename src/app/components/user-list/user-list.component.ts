@@ -1,9 +1,9 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { AuthService } from '../Services/auth.service';
-import { User } from '../Models/user.model';
+import { AuthService } from '../../Services/auth.service';
+import { User } from '../../Models/user.model';
 
 import { Observable } from 'rxjs';
-import { ChatService } from '../Services/chat.service';
+import { ChatService } from '../../Services/chat.service';
 
 @Component({
   selector: 'app-user-list',

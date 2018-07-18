@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DirectMessage } from '../Models/direct-message.model';
+import { DirectMessage } from '../../Models/direct-message.model';
 import * as firebase from 'firebase/app';
 
 @Component({

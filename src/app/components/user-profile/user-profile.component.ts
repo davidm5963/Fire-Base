@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../Models/user.model';
-import { AuthService } from '../Services/auth.service';
+import { User } from '../../Models/user.model';
+import { AuthService } from '../../Services/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
 import { AngularFirestore } from 'angularfire2/firestore';

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-import { AuthService} from '../Services/auth.service';
+import { AuthService} from '../../Services/auth.service';
 
 @Component({
   selector: 'app-login',
