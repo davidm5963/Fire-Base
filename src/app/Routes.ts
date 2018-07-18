@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { SignupComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component';
-import { ChatroomComponent } from './chatroom/chatroom.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { LoginComponent } from './components/login/login.component';
+import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { AuthGuard } from './Services/auth.guard';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { UserComponent } from './user/user.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserComponent } from './components/user/user.component';
 
 export const appRoutes: Routes = [
     { path: 'signup', component: SignupComponent },
