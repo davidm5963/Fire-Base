@@ -67,7 +67,6 @@ export class UserProfileComponent implements OnInit {
 
     // Client-side validation example
     if (file.type.split('/')[0] !== 'image') { 
-      console.error('unsupported file type :( ')
       return;
     }
 
@@ -77,15 +76,10 @@ export class UserProfileComponent implements OnInit {
     // The main upload task
     this.task = this.storage.upload(path, file)
 
-    // Progress monitoring
-    this.percentage = this.task.percentageChanges();
-
     this.snapshot = this.task.snapshotChanges().pipe(
       tap(snap => {
         if (snap.bytesTransferred === snap.totalBytes) {
           // Update users profileImageUrl on completion
-          console.log("updating user ");
-          console.log(path)
           this.afs.doc(this.authService.getUserDocById(this.uid)).update({ profileImageUrl:  path });
         }
       })

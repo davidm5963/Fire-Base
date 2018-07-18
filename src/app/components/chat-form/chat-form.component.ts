@@ -13,7 +13,10 @@ export class ChatFormComponent implements OnInit {
   chatForm: FormGroup;
   recieverUid: string;
 
-  constructor(private fb: FormBuilder, private chatService: ChatService, private route: ActivatedRoute) {
+  constructor(private fb: FormBuilder, 
+              private chatService: ChatService, 
+              private route: ActivatedRoute) {
+                
     this.recieverUid = this.route.snapshot.params['uid'];    
    }
 

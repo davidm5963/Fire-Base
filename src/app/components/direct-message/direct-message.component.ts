@@ -13,9 +13,6 @@ export class DirectMessageComponent implements OnInit {
   message: string;
   timeSent: string;
   isOwnMessage: boolean;
-  profileImageUrl: any;
-  currentUser: any;
-  messageSender: any;
 
   constructor() {
    }
@@ -24,7 +21,6 @@ export class DirectMessageComponent implements OnInit {
     this.message = chatMessage.chatMessage.message;
     this.timeSent = chatMessage.chatMessage.timeSent;
     this.isOwnMessage = this.chatMessage.chatMessage.uid === firebase.auth().currentUser.uid;
-    
   }
 
 

@@ -25,12 +25,10 @@ export class FeedComponent implements OnInit, OnChanges {
     if(this.recieverUid == null || this.recieverUid == undefined){
       this.feed = this.chatService.getMessages().valueChanges();
       this.chatService.getMessages().valueChanges().subscribe(() => this.showLoadingSpinner = false)
-      console.log(this.feed);
     }
     else{
       this.feed = this.chatService.getDirectMessages(this.recieverUid);
       this.chatService.getMessages().valueChanges().subscribe(() => this.showLoadingSpinner = false)      
-      console.log(this.feed);
     }
   }
 

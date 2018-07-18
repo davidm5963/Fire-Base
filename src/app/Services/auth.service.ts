@@ -91,10 +91,7 @@ export class AuthService {
 
   }
 
-  signOut(){
-    console.log('updating status on logout')
-    
-    
+  signOut(){    
     firebase.auth().signOut().then(result =>{
       this.router.navigate(['login']);
     }).catch(function(error) {

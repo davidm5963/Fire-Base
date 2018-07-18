@@ -22,8 +22,6 @@ export class SignupComponent{
   constructor(public fb: FormBuilder, public auth: AuthService) { }
 
   ngOnInit() {
-
-    // First Step
     this.signupForm = this.fb.group({
       'email': ['', [
         Validators.required,
@@ -51,10 +49,8 @@ export class SignupComponent{
   get displayName() { return this.signupForm.get('displayName') }
 
 
-  // Step 1
   signup() {
     return this.auth.signUp(this.email.value, this.password.value, this.displayName.value).catch(error => {
-      console.log("Cathing error, setting to errorMessage")
       this.errorMessage = error;
     })
   }

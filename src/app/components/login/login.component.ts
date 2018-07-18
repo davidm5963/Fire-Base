@@ -16,11 +16,11 @@ export class LoginComponent implements OnInit{
   loginForm: FormGroup;
   errorMessage: string;
 
-  constructor(private authService: AuthService, public fb: FormBuilder, private router: Router) {
-   }
+  constructor(private authService: AuthService, 
+              public fb: FormBuilder, 
+              private router: Router) {}
 
   ngOnInit(){
-
     this.loginForm = this.fb.group({
       'email': ['', [
         Validators.required,
@@ -37,8 +37,7 @@ export class LoginComponent implements OnInit{
   get email() { return this.loginForm.get('email') }
   get password() { return this.loginForm.get('password') }
 
-  login()
-  {
+  login(){
     this.authService.login(this.email.value, this.password.value).then(success => {
       this.router.navigate(['/chat']);      
     }

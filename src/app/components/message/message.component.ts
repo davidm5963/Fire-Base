@@ -40,9 +40,5 @@ export class MessageComponent implements OnInit {
           this.profileImageUrl = url;
           });
       });
-
-
   }
-
-
 }
