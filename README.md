@@ -4,7 +4,7 @@ A realtime chat application built with Angular 6 and Firebase
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-![demo of app](Fire-Chat-main.PNG)
+![demo of app](Fire-Chat-Main.PNG)
 
 
 ## Development server
